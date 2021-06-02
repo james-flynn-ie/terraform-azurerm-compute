@@ -103,6 +103,12 @@ variable "is_windows_image" {
   default     = false
 }
 
+variable "vm_os_plan" {
+  description = "The name of the plan of the image that you want to deploy. This is ignored when vm_os_id or vm_os_simple are provided."
+  type        = string
+  default     = ""
+}
+
 variable "vm_os_publisher" {
   description = "The name of the publisher of the image that you want to deploy. This is ignored when vm_os_id or vm_os_simple are provided."
   type        = string
