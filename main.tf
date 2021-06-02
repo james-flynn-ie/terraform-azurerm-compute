@@ -57,6 +57,7 @@ resource "azurerm_virtual_machine" "vm-linux" {
 
   storage_image_reference {
     id        = var.vm_os_id
+    plan      = var.vm_os_id == "" ? coalesce(var.vm_os_plan, module.os.calculated_value_os_plan) : ""
     publisher = var.vm_os_id == "" ? coalesce(var.vm_os_publisher, module.os.calculated_value_os_publisher) : ""
     offer     = var.vm_os_id == "" ? coalesce(var.vm_os_offer, module.os.calculated_value_os_offer) : ""
     sku       = var.vm_os_id == "" ? coalesce(var.vm_os_sku, module.os.calculated_value_os_sku) : ""
